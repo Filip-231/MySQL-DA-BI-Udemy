@@ -11,6 +11,7 @@ use employees;
 drop function if exists f_emp_avg_salary;
 
 delimiter $$
+
 create function f_emp_avg_salary (p_emp_no integer) returns decimal (10,2)
 deterministic no sql READS SQL DATA 
 begin 
@@ -27,17 +28,11 @@ return v_avg_salary;
 end $$
 delimiter ; 
 
-select f_emp_avg_salary(11300);
-
-
-
+SELECT F_EMP_AVG_SALARY(11300);
 
 #Create a function called ‘emp_info’ that takes for parameters the first and last name of an employee, and returns the salary from the newest contract of that employee.
-
 #Hint: In the BEGIN-END block of this program, you need to declare and use two variables – v_max_from_date that will be of the DATE type, and v_salary, that will be of the DECIMAL (10,2) type.
-
 #Finally, select this function.
-
 
 delimiter $$
 create function emp_info (p_first_name varchar(255), p_last_name varchar(255)) returns decimal (10,2)

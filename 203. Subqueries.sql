@@ -21,13 +21,15 @@
 
 -- Your output must contain 42 rows.
 
-select * from dept_manager;
-
-
-select e.first_name, e.last_name
-from 
-employees e
-where e.emp_no in (select dm.emp_no from dept_manager dm); 
+SELECT 
+    e.first_name, e.last_name
+FROM
+    employees e
+WHERE
+    e.emp_no IN (SELECT 
+            dm.emp_no
+        FROM
+            dept_manager dm); 
 
 
 select dm.emp_no from dept_manager dm; 
@@ -46,13 +48,19 @@ WHERE
         WHERE
             hire_date BETWEEN '1990-01-01' AND '1995-01-01');
             
-            
-#exists to samo 
-select e.first_name, e.last_name
-from 
-employees e
-where exists ( select * from dept_manager dm where dm.emp_no =e.emp_no)
-order by emp_no;
+#same result as:            
+SELECT 
+    e.first_name, e.last_name
+FROM
+    employees e
+WHERE
+    EXISTS( SELECT 
+            *
+        FROM
+            dept_manager dm
+        WHERE
+            dm.emp_no = e.emp_no)
+ORDER BY emp_no;
 
 #Select the entire information for all employees whose job title is “Assistant Engineer”. 
 select * from employees;
@@ -221,18 +229,4 @@ FROM
     ORDER BY e.emp_no
     LIMIT 20) AS D
    )as U ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

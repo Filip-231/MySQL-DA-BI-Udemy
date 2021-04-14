@@ -23,17 +23,8 @@ select * from dept_manager_dup order by dept_no ASC;
 select * from department_dup order by dept_no ASC;
 
 
-
 insert into dept_manager_dup
 values ('110228','d003','1992-03-21','9999-01-01');
 insert into department_dup
 values ('d009','Customer Service');
-
-
-
-
-
-
-
-
 
